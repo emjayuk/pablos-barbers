@@ -137,7 +137,7 @@ export default function Navbar() {
               backgroundColor: 'var(--color-gold)',
               color: 'var(--color-black)',
               fontSize: 'clamp(0.7rem, 1.4vw, 0.85rem)',
-              padding: '9px 18px',
+              padding: '12px 20px',
             }}
             whileHover={{ scale: 1.03, transition: { duration: 0.18 } }}
             whileTap={{ scale: 0.97 }}
