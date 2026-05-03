@@ -161,7 +161,7 @@ export default function Reviews() {
               className="flex flex-col gap-5 p-7 md:p-8"
               style={{
                 backgroundColor: 'var(--color-green)',
-                borderLeft: '3px solid var(--color-gold)',
+                borderTop: '3px solid var(--color-gold)',
               }}
             >
               {/* Stars */}
