@@ -147,7 +147,7 @@ export default function Footer() {
         >
           <p
             className="font-body text-center"
-            style={{ fontSize: '0.75rem', color: 'rgba(253,248,238,0.35)' }}
+            style={{ fontSize: '0.75rem', color: 'rgba(253,248,238,0.55)' }}
           >
             &copy; 2026 Pablo&apos;s Barbers, Bristol. All rights reserved.
           </p>
