@@ -116,7 +116,7 @@ export default function Navbar() {
             <a
               key={link.href}
               href={link.href}
-              className="font-body text-xs tracking-[0.18em] uppercase transition-colors duration-200"
+              className="font-body text-xs tracking-[0.18em] uppercase transition-colors duration-200 py-3"
               style={{ color: 'rgba(253,248,238,0.75)' }}
               onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--color-gold)')}
               onMouseLeave={(e) => (e.currentTarget.style.color = 'rgba(253,248,238,0.75)')}
