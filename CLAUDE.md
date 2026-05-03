@@ -7,7 +7,7 @@ Premium single-page scroll website for Pablo's Barbers, a Jamaican barbershop in
 - Business: Pablo's Barbers
 - Address: 126 Stapleton Rd, St Jude's, Bristol BS5 0PS
 - Phone: 0117 329 1293
-- WhatsApp: https://wa.me/441173291293
+- WhatsApp: https://wa.me/447531329600
 - Instagram: @pablobarber1
 - Hours: Open until 8pm
 - Google Rating: 4.4 stars, 103 reviews
@@ -42,7 +42,7 @@ Premium single-page scroll website for Pablo's Barbers, a Jamaican barbershop in
 - Always read and apply the UI UX Pro Max and frontend-design skills before any UI task
 - Use 21st.dev magic MCP for components where available
 - Never use placeholder Lorem Ipsum text
-- All CTAs link to WhatsApp: https://wa.me/441173291293
+- All CTAs link to WhatsApp: https://wa.me/447531329600
 - Use Framer Motion for all animations
 - Mobile first, fully responsive
 - No generic AI aesthetics — every design decision must feel intentional
