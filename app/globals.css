@@ -1,26 +1,179 @@
 @import "tailwindcss";
 
+/* ═══════════════════════════════════════════════════════════════════════
+   PABLO'S BARBERS — GLOBAL DESIGN SYSTEM
+   Tailwind v4: @theme tokens = CSS custom properties + utility classes
+   ═══════════════════════════════════════════════════════════════════════ */
+
+/* ── Tailwind v4 Theme Tokens ─────────────────────────────────────────
+   Each --color-* generates: text-*, bg-*, border-*, fill-*, etc.
+   Each --font-*  generates: font-* utility class
+   ──────────────────────────────────────────────────────────────────── */
+@theme {
+  /* Brand Colours */
+  --color-reggae-green: #1B4332;
+  --color-gold:         #F4A11D;
+  --color-reggae-red:   #C1121F;
+  --color-cream:        #FDF8EE;
+  --color-near-black:   #0D0D0D;
+
+  /* Semi-transparent overlay variants */
+  --color-gold-10:         color-mix(in srgb, #F4A11D 10%, transparent);
+  --color-gold-20:         color-mix(in srgb, #F4A11D 20%, transparent);
+  --color-green-80:        color-mix(in srgb, #1B4332 80%, transparent);
+  --color-near-black-90:   color-mix(in srgb, #0D0D0D 90%, transparent);
+
+  /* Font families — CSS vars injected by next/font/google in layout.tsx */
+  --font-display: var(--font-bebas);
+  --font-body:    var(--font-nunito);
+
+  /* Fluid display type scale */
+  --text-display: clamp(5rem, 14vw, 14rem);
+  --text-hero:    clamp(3.5rem, 9vw, 9rem);
+  --text-section: clamp(2.25rem, 5vw, 5rem);
+
+  /* Z-index scale — prevents z-index wars */
+  --z-under:   -1;
+  --z-base:     0;
+  --z-raised:   10;
+  --z-overlay:  20;
+  --z-drawer:   30;
+  --z-modal:    40;
+  --z-toast:    50;
+  --z-top:      100;
+}
+
+/* ── CSS Custom Property Aliases ──────────────────────────────────────
+   Exact short-hand names from the design brief for direct CSS usage.
+   var(--color-green), var(--color-gold), var(--color-red), etc.
+   ──────────────────────────────────────────────────────────────────── */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --color-green:  #1B4332;
+  --color-gold:   #F4A11D;
+  --color-red:    #C1121F;
+  --color-cream:  #FDF8EE;
+  --color-black:  #0D0D0D;
+
+  /* ── Typography Scale ─────────────────────────────────────────────── */
+  --text-xs:   0.75rem;    /*  12px */
+  --text-sm:   0.875rem;   /*  14px */
+  --text-base: 1rem;       /*  16px */
+  --text-lg:   1.125rem;   /*  18px */
+  --text-xl:   1.25rem;    /*  20px */
+  --text-2xl:  1.5rem;     /*  24px */
+  --text-3xl:  1.875rem;   /*  30px */
+  --text-4xl:  2.25rem;    /*  36px */
+  --text-5xl:  3rem;       /*  48px */
+  --text-6xl:  3.75rem;    /*  60px */
+  --text-7xl:  4.5rem;     /*  72px */
+  --text-8xl:  6rem;       /*  96px */
+  --text-9xl:  8rem;       /* 128px */
+
+  /* ── Spacing Rhythm ───────────────────────────────────────────────── */
+  --space-xs:      0.25rem;  /*   4px */
+  --space-sm:      0.5rem;   /*   8px */
+  --space-md:      1rem;     /*  16px */
+  --space-lg:      1.5rem;   /*  24px */
+  --space-xl:      2rem;     /*  32px */
+  --space-2xl:     3rem;     /*  48px */
+  --space-3xl:     4rem;     /*  64px */
+  --space-4xl:     6rem;     /*  96px */
+  --space-5xl:     8rem;     /* 128px */
+  --space-section: 7rem;     /* Standard section vertical padding */
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ── Base HTML / Body ─────────────────────────────────────────────────
+   Dark near-black base — cinematic by default.
+   Min 16px body, overflow-x hidden, line-height 1.65 (UX Pro Max rules)
+   ──────────────────────────────────────────────────────────────────── */
+html {
+  scroll-behavior: smooth;
+  color-scheme: dark;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-black);
+  color: var(--color-cream);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.65;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* ── Custom Scrollbar ─────────────────────────────────────────────────
+   Gold thumb on near-black track, reggae-green on hover.
+   ──────────────────────────────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-black);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-gold);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-green);
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-gold) var(--color-black);
+}
+
+/* ── Global Focus Ring ────────────────────────────────────────────────
+   Gold ring — keyboard navigation stays on-brand (UX Pro Max: CRITICAL)
+   ──────────────────────────────────────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* ── Fluid Type Helpers ───────────────────────────────────────────────
+   Semantic classes built on the @theme fluid sizes above.
+   Bebas Neue is condensed + all-caps by design — no text-transform needed.
+   ──────────────────────────────────────────────────────────────────── */
+.type-display {
+  font-family: var(--font-display);
+  font-size: var(--text-display);
+  line-height: 0.92;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+}
+
+.type-hero {
+  font-family: var(--font-display);
+  font-size: var(--text-hero);
+  line-height: 0.95;
+  text-transform: uppercase;
+}
+
+.type-section {
+  font-family: var(--font-display);
+  font-size: var(--text-section);
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+/* ── Reduced Motion ───────────────────────────────────────────────────
+   UX Pro Max CRITICAL rule. Framer Motion also respects this signal.
+   ──────────────────────────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
