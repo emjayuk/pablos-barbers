@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import { motion } from 'framer-motion'
 import type { Variants } from 'framer-motion'
 
@@ -55,15 +56,22 @@ export default function About() {
           >
             {/* Gold-bordered frame with corner accent marks */}
             <div
-              className="relative w-full aspect-[4/5] flex items-center justify-center"
-              style={{
-                border: '1px solid rgba(244,161,29,0.45)',
-                backgroundColor: 'rgba(13,13,13,0.25)',
-              }}
+              className="relative w-full aspect-[4/5] overflow-hidden"
+              style={{ border: '1px solid rgba(244,161,29,0.45)' }}
             >
+              <Image
+                src="/gallery/pablo-hero.jpg"
+                alt="Pablo — master barber at Pablo's Barbers, Bristol"
+                fill
+                sizes="(max-width: 1024px) 100vw, 42vw"
+                className="object-cover"
+                style={{ objectPosition: 'center top' }}
+                priority
+              />
+
               {/* Corner brackets — top left */}
               <span
-                className="absolute top-0 left-0 w-7 h-7"
+                className="absolute top-0 left-0 w-7 h-7 z-10"
                 style={{
                   borderTop: '2px solid var(--color-gold)',
                   borderLeft: '2px solid var(--color-gold)',
@@ -71,7 +79,7 @@ export default function About() {
               />
               {/* Corner brackets — top right */}
               <span
-                className="absolute top-0 right-0 w-7 h-7"
+                className="absolute top-0 right-0 w-7 h-7 z-10"
                 style={{
                   borderTop: '2px solid var(--color-gold)',
                   borderRight: '2px solid var(--color-gold)',
@@ -79,7 +87,7 @@ export default function About() {
               />
               {/* Corner brackets — bottom left */}
               <span
-                className="absolute bottom-0 left-0 w-7 h-7"
+                className="absolute bottom-0 left-0 w-7 h-7 z-10"
                 style={{
                   borderBottom: '2px solid var(--color-gold)',
                   borderLeft: '2px solid var(--color-gold)',
@@ -87,20 +95,12 @@ export default function About() {
               />
               {/* Corner brackets — bottom right */}
               <span
-                className="absolute bottom-0 right-0 w-7 h-7"
+                className="absolute bottom-0 right-0 w-7 h-7 z-10"
                 style={{
                   borderBottom: '2px solid var(--color-gold)',
                   borderRight: '2px solid var(--color-gold)',
                 }}
               />
-
-              {/* Placeholder label */}
-              <p
-                className="font-body text-xs tracking-[0.25em] uppercase text-center px-8 leading-loose"
-                style={{ color: 'rgba(253,248,238,0.35)' }}
-              >
-                Pablo&apos;s Photo<br />Coming Soon
-              </p>
             </div>
           </motion.div>
 
